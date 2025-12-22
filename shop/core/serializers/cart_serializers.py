@@ -5,8 +5,8 @@ from .product_serializers import ProductSerializer
 
 
 class CartItemSerializer(serializers.ModelSerializer):
-    """Serializer for cart items."""
-    product = ProductSerializer()
+    """Serializer for individual items in the shopping cart."""
+    product = ProductSerializer(read_only=True)
 
     class Meta:
         model = CartItem
@@ -14,7 +14,7 @@ class CartItemSerializer(serializers.ModelSerializer):
 
 
 class CartSerializer(serializers.ModelSerializer):
-    """Serializer for shopping cart."""
+    """Serializer for the shopping cart, including all items."""
     items = CartItemSerializer(many=True, read_only=True)
 
     class Meta:

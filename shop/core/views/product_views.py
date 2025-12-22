@@ -7,7 +7,7 @@ from core.permissions import IsAdminOrReadOnly
 
 
 class CategoryListView(generics.ListAPIView):
-    """List all categories."""
+    """List all product categories."""
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
@@ -15,35 +15,35 @@ class CategoryListView(generics.ListAPIView):
 class ProductListView(generics.ListCreateAPIView):
     """
     List all products or create a new product.
-    
-    Supports:
-    - Filtering by category: ?category=1
-    - Search: ?search=iphone
+
+    Features:
+    - Filter by category: ?category=1
+    - Search by title or description: ?search=iphone
     - Ordering: ?ordering=price or ?ordering=-price
     """
     queryset = Product.objects.select_related("category").all()
     serializer_class = ProductSerializer
     permission_classes = [IsAdminOrReadOnly]
-    
+
     # Enable filtering, search, and ordering
     filter_backends = [
         DjangoFilterBackend,
         filters.SearchFilter,
         filters.OrderingFilter
     ]
-    
-    # Filtering
+
+    # Filtering fields
     filterset_fields = ["category"]
-    
-    # Search by title and description
+
+    # Search fields
     search_fields = ["title", "description"]
-    
-    # Ordering by price and title
+
+    # Ordering fields
     ordering_fields = ["price", "title", "stock"]
-    ordering = ["-id"]  # Default ordering
+    ordering = ["-id"]  # Default: newest first
 
 
 class ProductDetailView(generics.RetrieveAPIView):
-    """Retrieve a specific product by ID."""
+    """Retrieve details of a specific product by its ID."""
     queryset = Product.objects.select_related("category").all()
     serializer_class = ProductSerializer

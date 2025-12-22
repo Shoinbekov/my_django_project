@@ -5,8 +5,8 @@ from .product_serializers import ProductSerializer
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
-    """Serializer for order items."""
-    product = ProductSerializer()
+    """Serializer for individual items within an order."""
+    product = ProductSerializer(read_only=True)
 
     class Meta:
         model = OrderItem
@@ -14,7 +14,7 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    """Serializer for orders."""
+    """Serializer for orders, including all related items."""
     items = OrderItemSerializer(many=True, read_only=True)
 
     class Meta:
@@ -23,7 +23,8 @@ class OrderSerializer(serializers.ModelSerializer):
 
 
 class PaymentSerializer(serializers.ModelSerializer):
-    """Serializer for payments."""
+    """Serializer for payments associated with orders."""
+    
     class Meta:
         model = Payment
         fields = "__all__"
