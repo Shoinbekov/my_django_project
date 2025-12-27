@@ -14,8 +14,11 @@ class CartView(generics.RetrieveAPIView):
     serializer_class = CartSerializer
 
     def get_object(self) -> Cart:
-    cart, created = Cart.objects.select_related('user').prefetch_related('items__product').get_or_create(user=self.request.user)
-    return cart
+        cart, created = Cart.objects.get_or_create(user=self.request.user)
+        
+        return Cart.objects.select_related('user').prefetch_related(
+            'items__product'
+        ).get(id=cart.id)
 
 
 class CartAddItemView(APIView):
