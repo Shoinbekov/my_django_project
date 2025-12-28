@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from decimal import Decimal
 
-from core.models import Category, Product, Cart, CartItem, Order, OrderItem, Payment
+from apps.core.models import Category, Product, Cart, CartItem, Order, OrderItem, Payment
 
 User = get_user_model()
 

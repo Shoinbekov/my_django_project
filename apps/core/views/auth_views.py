@@ -5,7 +5,7 @@ from rest_framework.request import Request
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
 
-from core.serializers import RegisterSerializer, LoginSerializer
+from apps.core.serializers import RegisterSerializer, LoginSerializer
 
 
 class RegisterView(generics.CreateAPIView):

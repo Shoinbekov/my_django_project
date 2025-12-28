@@ -1,9 +1,9 @@
 from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
 
-from core.models import Category, Product
-from core.serializers import CategorySerializer, ProductSerializer
-from core.permissions import IsAdminOrReadOnly
+from apps.core.models import Category, Product
+from apps.core.serializers import CategorySerializer, ProductSerializer
+from apps.core.permissions import IsAdminOrReadOnly
 
 
 class CategoryListView(generics.ListAPIView):

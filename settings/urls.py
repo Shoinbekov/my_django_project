@@ -6,7 +6,7 @@ from drf_spectacular.views import (
     SpectacularRedocView,
 )
 
-from core.views import (
+from apps.core.views import (
     RegisterView, LoginView,
     ProductListView, ProductDetailView,
     CategoryListView, OrderListCreateView, PaymentListView
@@ -39,5 +39,5 @@ urlpatterns = [
     path("api/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
 
     # Core application — cart + advanced logic
-    path("api/", include("core.urls")),
+    path("api/", include("apps.core.urls")),
 ]

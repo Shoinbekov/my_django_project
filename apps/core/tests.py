@@ -3,7 +3,7 @@ from rest_framework.test import APIClient
 from rest_framework import status
 from decimal import Decimal
 
-from core.models import User, Category, Product, Cart, CartItem, Order, Payment
+from apps.core.models import User, Category, Product, Cart, CartItem, Order, Payment
 
 
 # ============================================================

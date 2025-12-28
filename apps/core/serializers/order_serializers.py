@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from core.models import Order, OrderItem, Payment
+from apps.core.models import Order, OrderItem, Payment
 from .product_serializers import ProductSerializer
 
 

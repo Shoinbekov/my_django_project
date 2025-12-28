@@ -1,6 +1,6 @@
 from django.urls import path
 
-from core.views import (
+from apps.core.views import (
     RegisterView,
     LoginView,
     CategoryListView,

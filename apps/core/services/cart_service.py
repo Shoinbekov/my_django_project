@@ -1,7 +1,7 @@
 from typing import Tuple
 from decimal import Decimal
 
-from core.models import Cart, CartItem, Product, User
+from apps.core.models import Cart, CartItem, Product, User
 
 
 def get_or_create_cart(user: User) -> Cart:

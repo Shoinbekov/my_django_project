@@ -3,9 +3,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.request import Request
 
-from core.models import Cart, Product
-from core.serializers import CartSerializer
-from core.services import add_item_to_cart, remove_item_from_cart, update_item_quantity
+from apps.core.models import Cart, Product
+from apps.core.serializers import CartSerializer
+from apps.core.services import add_item_to_cart, remove_item_from_cart, update_item_quantity
 
 
 class CartView(generics.RetrieveAPIView):

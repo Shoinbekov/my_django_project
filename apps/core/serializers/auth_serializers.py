@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from typing import Dict, Any
 
-from core.models import User
+from apps.core.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):

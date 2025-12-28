@@ -1,8 +1,8 @@
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 
-from core.models import Order, Payment
-from core.serializers import OrderSerializer, PaymentSerializer
+from apps.core.models import Order, Payment
+from apps.core.serializers import OrderSerializer, PaymentSerializer
 
 
 class OrderListCreateView(generics.ListCreateAPIView):

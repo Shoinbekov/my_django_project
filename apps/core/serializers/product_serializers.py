@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from core.models import Category, Product
+from apps.core.models import Category, Product
 
 
 class CategorySerializer(serializers.ModelSerializer):

@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django_filters',
 
     # Local app
-    'core',
+    'apps.core',
 ]
 
 
@@ -58,7 +58,7 @@ MIDDLEWARE = [
 ]
 
 
-ROOT_URLCONF = 'shop.urls'
+ROOT_URLCONF = 'settings.urls'
 
 
 # -----------------------------------------
@@ -81,8 +81,7 @@ TEMPLATES = [
 ]
 
 
-WSGI_APPLICATION = 'shop.wsgi.application'
-
+WSGI_APPLICATION = 'settings.wsgi.application'
 
 # -----------------------------------------
 # DATABASE
